@@ -13,7 +13,7 @@
                     <th scope="col">Titolo</th>
                     <th scope="col">Contenuto</th>
                     <th scope="col">Slug</th>
-                    <th scope="col">Azioni</th>
+                    <th class="text-center" scope="col">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,8 +24,9 @@
                         <td>{{ $project->content }}</td>
                         <td>{{ $project->slug }}</td>
                         <td>
-                            <div class="d-flex">
+                            <div class="d-flex gap-2">
                                 <a class="btn btn-info" href="{{ route('admin.project.show', ['project'=>$project->slug]) }}"><i class="fa-solid fa-circle-info text-white"></i></a>
+                                <a class="btn btn-warning" href="{{route('admin.project.edit', ['project'=>$project->slug])}}"><i class="fa-solid fa-pen text-white"></i></a>
                             </div>
                         </td>
                     </tr>
