@@ -37,8 +37,8 @@ class ProjectController extends Controller
         $project->slug = Str::slug($request->title);
         $project->save();
 
-        return $this->index();
-        // return redirect()->route('admin.project.index');
+        // return $this->index();
+        return redirect()->route('admin.project.index');
     }
 
     /**
@@ -68,8 +68,9 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.project.index')->with('message', 'project' .$project->title .' è stato eliminato con successo');
     }
 }
