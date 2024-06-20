@@ -25,7 +25,7 @@
                         <td>{{ $project->slug }}</td>
                         <td>
                             <div class="d-flex">
-                                <a class="btn btn-info" href=""><i class="fa-solid fa-circle-info text-white"></i></a>
+                                <a class="btn btn-info" href="{{ route('admin.project.show', ['project'=>$project->slug]) }}"><i class="fa-solid fa-circle-info text-white"></i></a>
                             </div>
                         </td>
                     </tr>

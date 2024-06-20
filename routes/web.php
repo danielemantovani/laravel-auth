@@ -26,7 +26,8 @@ Route::middleware('auth')
     ->name('admin.') // Inizio di ogni nome delle rotte del gruppo
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('project', ProjectController::class);
+        // per implementare la funzione show lo avviso che gli passerò come paramentro lo slug al posto dell'id
+        Route::resource('project', ProjectController::class)->parameters(['project'=>'project:slug']);
     });
 
 require __DIR__.'/auth.php';
