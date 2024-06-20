@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-3">
         <div class="d-flex justify-content-end">
-            <a class="btn btn-primary" href="{{route('admin.project.create')}}"><i class="fa-solid fa-plus"></i></a>
+            <a class="btn btn-primary" href="{{ route('admin.project.create') }}"><i class="fa-solid fa-plus"></i></a>
         </div>
         <h2>I miei progetti</h2>
         <table class="table">
@@ -23,7 +23,11 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->content }}</td>
                         <td>{{ $project->slug }}</td>
-                        <td></td>
+                        <td>
+                            <div class="d-flex">
+                                <a class="btn btn-info" href=""><i class="fa-solid fa-circle-info text-white"></i></a>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

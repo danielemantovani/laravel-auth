@@ -35,6 +35,10 @@ class ProjectController extends Controller
         $project = new Project();
         $project->fill($data);
         $project->slug = Str::slug($request->title);
+        $project->save();
+
+        return $this->index();
+        // return redirect()->route('admin.project.index');
     }
 
     /**
