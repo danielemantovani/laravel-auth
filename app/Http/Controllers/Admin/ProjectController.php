@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use function Laravel\Prompts\progress;
+
 class ProjectController extends Controller
 {
     /**
@@ -60,9 +62,13 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+        $project->update($data);
+        return redirect()->route('admin.project.show', ['project'=> $project->slug]);
+
     }
 
     /**
